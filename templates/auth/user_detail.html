@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block content %}
+<div class="card mt-1">
+    <h2 class="card-header">Perfil</h2>
+    <div class="card-body">
+        <p>Nome de Usuario: {{object.username}}</p>
+        <p> Primeiro nome: {{object.first_name}}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block content %}
+<div class="card mt-1">
+    <h2 class="card-header">Mensagens Privadas</h2>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Usuarios
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in private_channel %}
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="card mt-1">
+    <h2 class="card-header">Canais</h2>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Nome
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

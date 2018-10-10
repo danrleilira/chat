@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-6 ml-auto mr-auto">
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed,
+                    please login with an account that has access.</p>
+                {% else %}
+                    <p>Please login to see this page.</p>
+                {% endif %}
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}" class="card p-5"> 
+                {% csrf_token %}
+                <table class="ml-auto mr-auto">
+                    <tr>
+                        <td class="w-25"> 
+                            {{ form.username.label_tag }} 
+                        </td>
+                        <td class="w-75">
+                            {{ form.username|add_class:'form-control w-auto d-inline' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25">{{ form.password.label_tag }}</td>
+                        <td class="w-75">{{ form.password|add_class:'form-control w-auto d-inline' }}</td>
+                    </tr>
+                </table>
+                <table class="ml-auto mr-auto mt-2">
+                    <tr>
+                        <td class="w-50">
+                            <div>
+                                <input type="submit" value="login" class="btn btn-primary w-100">
+                            </div>
+                        </td>
+                        <td class="w-50">
+                            <div class="ml-auto">
+                                <a href="{% url 'password_reset' %}" class="btn btn-secondary w-100">Esqueceu a senha?</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a href="{% url 'sign-up' %}" class="btn btn-secondary pull-right w-100">Cadastrar-se</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            {# Assumes you setup the password_reset view in your URLconf #}
+            
+        </div>
+    </div>
+{% endblock %}

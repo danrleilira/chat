@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+    <div class="card mt-1">
+        <h2 class="card-header">Deslogado</h2>
+        <div class="card-body">
+            <p>Voce deslogou, <a href="{% url 'login' %}">clique aqui</a> para retornar</p>
+        </div>
+    </div>
+{% endblock %}
